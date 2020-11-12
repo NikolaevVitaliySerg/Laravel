@@ -23,22 +23,13 @@ class LoginController extends Controller
                 'errors' => 'Unauthorised'
             ], 401);
         }
-        //$token = Str::random(80);
-        $token = Auth::user()->createToken(config('app.name'));
 
-        
-        //Auth::user()->createToken(config('app.name'));
-        //zapomnit menia
-       // $token->token->expires_at = $request->remember_me ?
-          //  Carbon::now()->addMonth() :
-         //   Carbon::now()->addDay();
-        //$token->token->save();
+        $token = Auth::user()->createToken(config('app.name'));
 
         return response()->json([
             'User' => Auth::user(),
             'token_type' => 'Bearer',
             'token' => $token->accessToken,
-            //'expires_at' => Carbon::parse($token->token->expires_at)->toDateTimeString()
         ], 200);
     }
 }
