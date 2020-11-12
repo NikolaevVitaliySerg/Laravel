@@ -11,7 +11,7 @@ class RegisterController extends Controller
      * Handle the incoming RegisterFormRequest.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response
      */
     public function __invoke(Request $request)
     {
@@ -21,7 +21,6 @@ class RegisterController extends Controller
         ));
 
         return response()->json([
-
             'message' => 'You were successfully registered. Use your email and password to sign in.'
         ], 200);
     }

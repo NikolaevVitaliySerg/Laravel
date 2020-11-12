@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
+
     protected $table='tasks';
-    //protected $primaryKey = 'task_id';
+
     protected $fillable = [
         'list_id',
         'name',
@@ -17,7 +18,9 @@ class Task extends Model
         'urgency',
         'state'
     ];
-    public function list(){
+
+    public function list()
+    {
         return $this->belongsTo('TodoList');
     }
 }
