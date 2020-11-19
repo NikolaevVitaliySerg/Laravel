@@ -3,9 +3,9 @@
 return [
 
     /*
-    |--------------------------------------------------------------------------
+    |------------------------------------------------------------------------—
     | Authentication Defaults
-    |--------------------------------------------------------------------------
+    |------------------------------------------------------------------------—
     |
     | This option controls the default authentication "guard" and password
     | reset options for your application. You may change these defaults
@@ -19,9 +19,9 @@ return [
     ],
 
     /*
-    |--------------------------------------------------------------------------
+    |------------------------------------------------------------------------—
     | Authentication Guards
-    |--------------------------------------------------------------------------
+    |------------------------------------------------------------------------—
     |
     | Next, you may define every authentication guard for your application.
     | Of course, a great default configuration has been defined for you
@@ -37,23 +37,21 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'passport',
+            'driver' => 'session',
             'provider' => 'users',
         ],
 
         'api' => [
             'driver' => 'passport',
             'provider' => 'users',
-            //'hash' => false,
+            'hash' => false,
         ],
     ],
 
-
-
     /*
-    |--------------------------------------------------------------------------
+    |------------------------------------------------------------------------—
     | User Providers
-    |--------------------------------------------------------------------------
+    |------------------------------------------------------------------------—
     |
     | All authentication drivers have a user provider. This defines how the
     | users are actually retrieved out of your database or other storage
@@ -73,16 +71,16 @@ return [
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+// 'users' => [
+// 'driver' => 'database',
+// 'table' => 'users',
+// ],
     ],
 
     /*
-    |--------------------------------------------------------------------------
+    |------------------------------------------------------------------------—
     | Resetting Passwords
-    |--------------------------------------------------------------------------
+    |------------------------------------------------------------------------—
     |
     | You may specify multiple password reset configurations if you have more
     | than one user table or model in the application and you want to have
@@ -104,9 +102,9 @@ return [
     ],
 
     /*
-    |--------------------------------------------------------------------------
+    |------------------------------------------------------------------------—
     | Password Confirmation Timeout
-    |--------------------------------------------------------------------------
+    |------------------------------------------------------------------------—
     |
     | Here you may define the amount of seconds before a password confirmation
     | times out and the user is prompted to re-enter their password via the

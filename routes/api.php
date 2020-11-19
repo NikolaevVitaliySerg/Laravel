@@ -25,8 +25,8 @@ Route::prefix('login')->group(function () {
     Route::post('/',['uses' => 'App\Http\Controllers\Api\Auth\LoginController@__invoke']);
 });
 
-//Route::middleware('auth:api')->group(function ()
-//{
+Route::middleware('auth:api')->group(function ()
+{
     Route::prefix('logout')->group(function () {
         Route::post('/',['uses' => 'App\Http\Controllers\Api\Auth\LogoutController@__invoke']);
     });
@@ -47,4 +47,4 @@ Route::prefix('login')->group(function () {
                 Route::put('/{list_id}', ['uses' => 'App\Http\Controllers\TodoListController@editTodoList']);
                 Route::delete('/{list_id}', ['uses' => 'App\Http\Controllers\TodoListController@deleteTodoList']);
             });
-//});
+});
