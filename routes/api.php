@@ -18,25 +18,25 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::prefix('registration')->group(function () {
-    Route::post('/',['uses'=>'App\Http\Controllers\Api\Auth\RegisterController@__invoke']);
+    Route::post('/',['uses' => 'App\Http\Controllers\Api\Auth\RegisterController@__invoke']);
 });
 
 Route::prefix('login')->group(function () {
-    Route::post('/',['uses'=>'App\Http\Controllers\Api\Auth\LoginController@__invoke']);
+    Route::post('/',['uses' => 'App\Http\Controllers\Api\Auth\LoginController@__invoke']);
 });
 
-Route::middleware('auth:api')->group(function ()
-{
+//Route::middleware('auth:api')->group(function ()
+//{
     Route::prefix('logout')->group(function () {
-        Route::post('/',['uses'=>'App\Http\Controllers\Api\Auth\LogoutController@__invoke']);
+        Route::post('/',['uses' => 'App\Http\Controllers\Api\Auth\LogoutController@__invoke']);
     });
 
         Route::prefix('task')->group(function () {
-            Route::get('/{task_id}',['uses'=>'App\Http\Controllers\TaskController@showTask']);
-            Route::get('/',['uses'=>'App\Http\Controllers\TaskController@showTasks']);
-            Route::post('/',['uses'=>'App\Http\Controllers\TaskController@createTask']);
-            Route::put('/{task_id}',['uses'=>'App\Http\Controllers\TaskController@editTask']);
-            Route::delete('/{task_id}',['uses'=>'App\Http\Controllers\TaskController@deleteTask']);
+            Route::get('/{task_id}',['uses' => 'App\Http\Controllers\TaskController@showTask']);
+            Route::get('/',['uses' => 'App\Http\Controllers\TaskController@showTasks']);
+            Route::post('/',['uses' => 'App\Http\Controllers\TaskController@createTask']);
+            Route::put('/{task_id}',['uses' => 'App\Http\Controllers\TaskController@editTask']);
+            Route::delete('/{task_id}',['uses' => 'App\Http\Controllers\TaskController@deleteTask']);
 
         });
 
@@ -47,4 +47,4 @@ Route::middleware('auth:api')->group(function ()
                 Route::put('/{list_id}', ['uses' => 'App\Http\Controllers\TodoListController@editTodoList']);
                 Route::delete('/{list_id}', ['uses' => 'App\Http\Controllers\TodoListController@deleteTodoList']);
             });
-});
+//});

@@ -11,9 +11,12 @@ class TodoListController extends Controller
 
     public function showTodoList($list_id)
     {
-        $todoList=TodoList::find($list_id);
-        if ( is_null($todoList) ) {
-            return response()->json(['error'=>true, 'message'=>'Not found'],404);
+        $todoList = TodoList::find($list_id);
+        if (is_null($todoList)) {
+            return response()->json([
+                'error' => true,
+                'message' => 'Not found'
+            ], 404);
         }
         return response()->json(TodoList::find($list_id), 200);
     }
@@ -31,9 +34,12 @@ class TodoListController extends Controller
 
     public function editTodoList(Request $req, $list_id)
     {
-        $todoList=TodoList::find($list_id);
-        if ( is_null($todoList) ) {
-            return response()->json(['error'=>true, 'message'=>'Not found'],404);
+        $todoList = TodoList::find($list_id);
+        if (is_null($todoList)) {
+            return response()->json([
+                'error' => true,
+                'message' => 'Not found'
+            ], 404);
         }
         $todoList->update($req->all());
         return response()->json($todoList,200);
@@ -41,17 +47,14 @@ class TodoListController extends Controller
 
     public function deleteTodoList($list_id)
     {
-        $todoList=TodoList::find($list_id);
-        if ( is_null($todoList) ) {
-            return response()->json(['error'=>true, 'message'=>'Not found'],404);
+        $todoList = TodoList::find($list_id);
+        if (is_null($todoList)) {
+            return response()->json([
+                'error' => true,
+                'message' => 'Not found'
+            ], 404);
         }
         $todoList->delete();
-        return response()->json('',204);
+        return response()->json('', 204);
     }
-
-    public function showTTodoList($list_id)
-    {
-        return response()->json(TodoList::find($list_id), 200);
-    }
-
 }
